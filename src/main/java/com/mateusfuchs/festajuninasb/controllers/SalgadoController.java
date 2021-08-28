@@ -20,7 +20,7 @@ public class SalgadoController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public ModelAndView index(){
         ModelAndView mvn = new ModelAndView("index");
         mvn.addObject("salgados", service.findAll());

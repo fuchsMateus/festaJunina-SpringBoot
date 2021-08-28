@@ -1,19 +1,25 @@
-function deleteSalgado(id){
-    $.ajax({
-        async: false,
-        url: "/deletar",
-        type: "DELETE",
-        data: JSON.stringify(id),
-        contentType: "application/json; charset=utf-8",
-    }).done(function (){
-        alert("Salgado removido com sucesso!");
-    }).fail(function (){alert("O salgado não existe ou não foi removido corretamente.")});
+$('#form-cadastro').submit(function() {
+    saveSalgado();
+    return false; // return false to cancel form action
+});
 
-    document.location.reload(true);
+function deleteSalgado(id){
+    if (confirm("Quer deletar esse salgado?")) {
+        $.ajax({
+            async: false,
+            url: "/deletar",
+            type: "DELETE",
+            data: JSON.stringify(id),
+            contentType: "application/json; charset=utf-8",
+        }).done(function (){
+            alert("Salgado removido com sucesso!");
+        }).fail(function (){alert("O salgado não existe ou não foi removido corretamente.")});
+
+        document.location.reload(true);
+    }
 }
 
 function saveSalgado(){
-
     let tipo = $('#SelectTipo').val();
     let sabor = $('#SelectSabor').val();
 
