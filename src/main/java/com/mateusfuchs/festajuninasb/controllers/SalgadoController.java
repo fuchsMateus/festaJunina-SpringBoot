@@ -20,9 +20,9 @@ public class SalgadoController {
         this.service = service;
     }
 
-    @RequestMapping("/")
-    public ModelAndView index(){
-        ModelAndView mvn = new ModelAndView("index");
+    @GetMapping("/salgados")
+    public ModelAndView salgadosView(){
+        ModelAndView mvn = new ModelAndView("salgados");
         mvn.addObject("salgados", service.findAll());
         return mvn;
     }
@@ -33,7 +33,7 @@ public class SalgadoController {
                 salgado.setId(s.getId());
         }
         service.save(salgado);
-        return index();
+        return salgadosView();
     }
 
     @DeleteMapping("/deletar")
@@ -43,7 +43,7 @@ public class SalgadoController {
         if (salgado == null)
             throw new NullPointerException();
         service.delete(salgado);
-        return index();
+        return salgadosView();
     }
 
 

@@ -4,7 +4,7 @@ $('#form-cadastro').submit(function() {
 });
 
 function deleteSalgado(id){
-    if (confirm("Quer deletar esse salgado?")) {
+    if (confirm("Remover esse salgado?")) {
         $.ajax({
             async: false,
             url: "/deletar",
