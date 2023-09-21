@@ -1,0 +1,15 @@
+.alinhamento-centro{
+    text-align: center;
+    display: block;
+
+}
+
+.alinhamento-centro-table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
